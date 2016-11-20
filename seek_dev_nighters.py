@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import requests
-from datetime import datetime
 import pendulum
 from helpers import enable_win_unicode_console, handle_requests_exceptions
 
@@ -26,8 +25,8 @@ def is_midnight(attempt: dict) -> bool:
     """
     if attempt['timezone'] is None or attempt['timestamp'] is None:
         return None
-    attempt_time = pendulum.timezone(attempt['timezone']).convert(
-        datetime.fromtimestamp(attempt['timestamp']))
+    attempt_time = pendulum.from_timestamp(
+        attempt['timestamp'], attempt['timezone'])
     return True if attempt_time.hour < MIDNIGHT_END else False
 
 
