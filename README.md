@@ -1,47 +1,23 @@
-# Решение задачи [№15](https://devman.org/challenges/15/) с сайта [devman.org](https://devman.org)
-
-## Условие задачи:
-
-В базе devman хранится информация о том кто и когда отправил задачу 
-на проверку.
-
-Получить её можно с помощью [АПИ](http://devman.org/api/challenges/solution_attempts/?page=2)
-
-Давай выясним кто отправлял задачи на проверку после 24:00.
-
-Рекомендуемые библиотеки: requests и pytz.
-
-## Системные требования
-
+# Task [№15](https://devman.org/challenges/15/) from [devman](https://devman.org)
+## Requirements
 ```
 Python 3.5.2+
-win-unicode-console
 requests
 pendulum
 ```
-
-## Установка
-
+## Setup
 ```    
 git clone https://github.com/ram0973/15_midnighters.git
 cd 15_midnighters
-(Windows) pip install -r requirements.txt
-(Linux) pip3 install -r requirements.txt
+pip3 install -r requirements.txt
 ```
-    
-## Описание работы
-
+## Description
 ```
-Скрипт выводит список всех пользователей, которые сдавали задания с 0 до 05:59:59 часов 
+The script displays a list of all the users who passed the job from 0 to 6 hours 
 ```
-
-## Запуск
-
+## Usage
 ```
-(Windows) python seek_dev_midnighters.py
-(Linux) python3 seek_dev_midnighters.py
+python3 seek_dev_midnighters.py
 ```
- 
-## Лицензия
-
+## License
 [MIT](http://opensource.org/licenses/MIT)
