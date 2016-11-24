@@ -14,18 +14,18 @@ def load_attempts():
         yield from page_items
 
 
-def is_midnight(attempt: dict) -> bool:
+def is_midnight(attempt):
     if attempt['timezone'] is None or attempt['timestamp'] is None:
         return None
     attempt_time = pendulum.from_timestamp(
         attempt['timestamp'], attempt['timezone'])
-    return True if attempt_time.hour < MIDNIGHT_END else False
+    return attempt_time.hour < MIDNIGHT_END
 
 
-def get_midnighters() -> list:
+def get_midnighters_names():
     return sorted({attempt['username'] for attempt in load_attempts()
                    if is_midnight(attempt)})
 
 if __name__ == '__main__':
     print('\nMidnight coders list:')
-    print(', '.join(get_midnighters()))
+    print(', '.join(get_midnighters_names()))
