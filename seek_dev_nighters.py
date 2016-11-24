@@ -23,6 +23,7 @@ def is_midnight(attempt):
 
 
 def get_midnighters_names():
+    """ Get midnighters names. Attention: we return a SET here """
     return sorted({attempt['username'] for attempt in load_attempts()
                    if is_midnight(attempt)})
 
