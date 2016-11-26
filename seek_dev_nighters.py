@@ -7,11 +7,12 @@ MIDNIGHT_END = 6
 
 
 def load_attempts():
-    response = requests.get(DEVMAN_ATTEMPTS_URL)
-    for page in range(1, response.json()['number_of_pages']+1):
-        page_items = requests.get(
-            DEVMAN_ATTEMPTS_URL, params={'page': page}).json()['records']
-        yield from page_items
+    attempts_raw = requests.get(DEVMAN_ATTEMPTS_URL)
+    number_of_pages = attempts_raw.json()['number_of_pages']
+    for page in range(1, number_of_pages+1):
+        page_raw = requests.get(DEVMAN_ATTEMPTS_URL, params={'page': page})
+        page_attempts = page_raw.json()['records']
+        yield from page_attempts
 
 
 def is_midnight(attempt):
@@ -23,7 +24,7 @@ def is_midnight(attempt):
 
 
 def get_midnighters_names():
-    """ Get midnighters names. Attention: we return a SET here """
+    """ Get a SET of midnighters names """
     return sorted({attempt['username'] for attempt in load_attempts()
                    if is_midnight(attempt)})
 

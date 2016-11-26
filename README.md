@@ -1,7 +1,7 @@
 # Task [№15](https://devman.org/challenges/15/) from [devman](https://devman.org)
 ## Description
 ```
-The script displays a list of all the users who passed the job from 0 to 6 hours 
+The script displays a list of all users who passed the job from 0 to 6 hours 
 ```
 ## Requirements
 ```
